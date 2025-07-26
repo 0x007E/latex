@@ -1,0 +1,5 @@
+Unterkategorie;Beschreibung
+Messtechnik;\textbf{Messen} und Auswerten von Spannungen und Strömen mit \textbf{Multimeter} und/oder \textbf{Oszilloskop}.
+Transistor;Einfaches \textbf{Löten} passiver/aktiver Bauelemente (Widerstände, Kondensatoren, Spulen, Transistoren) in \textbf{\acl{tht}}- und/oder \textbf{\acl{smd}-Technik}.
+Analog/Digital;Aufbau von Schaltungen mit \textbf{Operationsverstärkern} und/oder analogen \textbf{ICs}, realisieren von Logikfunktionen mit \textbf{Gattern}, Flip-Flops und digitalen Bausteinen in \acs{tht}- und/oder \acs{smd}-Technik mithilfe maschineller Fertigung.
+Mikrocontroller;Einbau und Inbetriebnahme von \textbf{Mikrocontrollern}, \textbf{flashen} von \textbf{Firmware} mit \acs{updi}-/\acs{isp}- und/oder \acs{jtag}-Schnittstellen.

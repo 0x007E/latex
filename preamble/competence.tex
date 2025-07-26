@@ -1,0 +1,38 @@
+\usepackage{etoolbox}
+\usepackage{xstring}
+\usepackage{float}
+
+\newcounter{competenceTableCounter}
+
+\newcommand{\showCompetenceTable}[1]{
+  \def\competencePath{./pages/competences/#1.csv}
+  
+  \stepcounter{competenceTableCounter}
+
+  \begin{table}[!ht]
+    \renewcommand{\arraystretch}{1.3}
+    \centering
+    \begin{tabularx}{\textwidth}{|c|X|}
+      \hline
+      \rowcolor{gray!20}
+      \multicolumn{2}{|c|}{\large\textbf{#1}} \\
+      \hline
+      \textbf{Unterkategorie} & \textbf{Beschreibung des Kompetenzbereichs} \\
+      \hline
+      \csvreader[
+        head to column names,
+        separator=semicolon,
+        late after line=\\\hline
+      ]{\competencePath}{}{
+        \Unterkategorie & \Beschreibung
+      }
+    \end{tabularx}
+    \caption{Kompetenzbereich #1 – Aufgeteilt nach Unterkategorien}
+  \end{table}
+
+  \ifnum\value{competenceTableCounter}=2
+    \thispagestyle{empty}
+    \newpage
+    \setcounter{competenceTableCounter}{0} % Zähler zurücksetzen
+  \fi
+}

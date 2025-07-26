@@ -1,0 +1,67 @@
+\newcounter{softwaretnotecounter}
+
+\section*{Benötigte Software}
+\begin{table}[!ht]
+  \renewcommand{\arraystretch}{1.3}
+  \centering
+  \begin{threeparttable}
+    \begin{tabularx}{\linewidth}{|M{2.4cm}|M{2.2cm}|X|}
+      \hline
+      \rowcolor{gray!20}
+      \textbf{Abbildung\tnote{*}} & \textbf{Name} & \textbf{Beschreibung} \\
+      \hline
+\ifsoftwarepagelineartechnology
+      \stepcounter{softwaretnotecounter}
+      \includesvg[width=1.6cm]{./logo/linear_technology} &
+      LT-Spice\tnote{(\thesoftwaretnotecounter)} &
+      Simulationssoftware für elektronische Schaltungen, weitverbreitet zum Entwurf und Testen von Schaltungen.\\
+      \hline
+\fi
+\ifsoftwarepagemicrochipstudio
+      \stepcounter{softwaretnotecounter}
+      \includesvg[width=1.6cm]{./logo/microchip} &
+      Microchip Studio\tnote{(\thesoftwaretnotecounter)} &
+      Entwicklungsumgebung (IDE) zur Programmierung von Mikrocontrollern, insbesondere AVR und ARM.\\
+      \hline
+\fi
+\ifsoftwarepagefreecad
+      \stepcounter{softwaretnotecounter}
+      \includesvg[width=0.65cm]{./logo/freecad} &
+      FreeCAD\tnote{(\thesoftwaretnotecounter)} &
+      Open-Source CAD-Software für 3D-Modellierung, geeignet für technische Konstruktionen und Design.\\
+      \hline
+\fi
+\ifsoftwarepagedremeldigilabslicer
+      \stepcounter{softwaretnotecounter}
+      \includesvg[width=1.6cm]{./logo/dremel} &
+      Dremel 3D DigiLab Slicer\tnote{(\thesoftwaretnotecounter)} &
+      Software zum Vorbereiten und Slicen von 3D-Druck-Modellen, speziell für Dremel 3D-Drucker optimiert.\\
+      \hline
+\fi
+    \end{tabularx}
+    \caption{Softwarekomponenten für das Projekt}
+    \label{tab:software-programme}
+    \begin{tablenotes}
+      \footnotesize
+      \item[*] Die abgebildeten Logos sind markenrechtlich geschützte Symbole. Sie werden in dieser Dokumentation ausschließlich zur Identifikation der jeweiligen Softwareprodukte verwendet, ohne Werbeabsicht.
+      \item[~]
+\setcounter{softwaretnotecounter}{0}
+\ifsoftwarepagelineartechnology
+      \stepcounter{softwaretnotecounter}
+      \item[(\thesoftwaretnotecounter)] \url{https://www.analog.com/en/resources/design-tools-and-calculators.html}
+\fi
+\ifsoftwarepagemicrochipstudio
+      \stepcounter{softwaretnotecounter}
+      \item[(\thesoftwaretnotecounter)] \url{https://www.microchip.com/en-us/tools-resources/develop/microchip-studio}
+\fi
+\ifsoftwarepagefreecad
+      \stepcounter{softwaretnotecounter}
+      \item[(\thesoftwaretnotecounter)] \url{https://www.freecad.org/downloads.php}
+\fi
+\ifsoftwarepagedremeldigilabslicer
+      \stepcounter{softwaretnotecounter}
+      \item[(\thesoftwaretnotecounter)] \url{https://www.dremel.com/at/de/digilab/3d-druckersoftware}  
+\fi
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
