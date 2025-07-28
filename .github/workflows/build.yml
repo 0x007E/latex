@@ -1,0 +1,35 @@
+name: Build LaTeX Template Document
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  FILENAME: "template"
+  LITERATURE: "literature.bib"
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Git repository
+        uses: actions/checkout@v4
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: ${{ env.FILENAME }}.tex
+          texlive_version: 2025
+          extra_system_packages: "inkscape"
+          #pre_compile: "tlmgr update --self && tlmgr update --all"
+          pre_compile: |
+            latexmk -f -interaction=nonstopmode -shell-escape -pdf ${{ env.FILENAME }}.tex || true
+          args: "-f -interaction=nonstopmode -shell-escape -pdf"
+          latexmk_shell_escape: true
+          continue_on_error: true
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDF
+          path: ${{ env.FILENAME }}.pdf
