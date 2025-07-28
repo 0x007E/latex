@@ -17,6 +17,9 @@
   \newcommand{\footerAuthor}{\documentAuthor}
   \newcommand{\footerVersion}{1.0}
 
+% Acronyme-Parameter
+\acronymspagetrue         % Acronyme aktivieren
+
 % Titlepage-Parameter
 \titlepagetrue        % Titelblatt aktivieren
 \titlepageqrcodetrue  % QR-Code auf dem Titelblatt aktivieren
@@ -88,6 +91,10 @@
 
 \iffooter
   \input{./preamble/footer.tex}
+\fi
+
+\ifacronymspage
+  \input{./preamble/acronyms.tex}
 \fi
 
 \ifcompetencepage
@@ -176,19 +183,12 @@ Dies war ein Beispiel für ein grundlegendes LaTeX-Template mit Kopf- und Fußze
 
 \newpage
 
-\section*{Abkürzungsverzeichnis}
+\ifacronymspage
+  \input{./pages/acronyms.tex}
 
-\begin{acronym}[JTAG]
-  \acro{tht}[THT]{Through-Hole Technology}
-  \acro{smd}[SMD]{Surface-Mounted Device}
-  \acro{updi}[UPDI]{Unified Program and Debug Interface}
-  \acro{isp}[ISP]{In-System Programming}
-  \acro{jtag}[JTAG]{Joint Test Action Group}
-  \acro{cnc}[CNC]{Computerized Numerical Control}
-\end{acronym}
-
-\thispagestyle{empty}
-\newpage
+  \thispagestyle{empty}
+  \newpage
+\fi
 
 % \section*{Literaturverzeichnis}
 
