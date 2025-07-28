@@ -27,6 +27,13 @@
   \newcommand{\titleDescription}{Kurzbeschreibung des Projekts\\}
   \newcommand{\titleRepository}{https://github.com/0x007e/???}
 
+% Softwarepage-Parameter
+\softwarepagetrue     % Software-Seite aktivieren
+  %\softwarepagelineartechnologytrue
+  \softwarepagemicrochipstudiotrue
+  \softwarepagefreecadtrue
+  \softwarepagedremeldigilabslicertrue
+
 % Competencepage-Parameter
 \competencepagetrue   % Kompetenz-Seite aktivieren
   % +---------------+---------------+
@@ -72,13 +79,6 @@
 % Hintspage-Parameter
 \hintspagetrue            % Dokumentenhinweise aktivieren
 
-% Softwarepage-Parameter
-\softwarepagetrue     % Software-Seite aktivieren
-  \softwarepagelineartechnologytrue
-  \softwarepagemicrochipstudiotrue
-  \softwarepagefreecadtrue
-  \softwarepagedremeldigilabslicertrue
-
 \input{./preamble/tabular.tex}
 \input{./preamble/commands.tex}
 
@@ -102,7 +102,11 @@
 
   \thispagestyle{empty}
   \newpage
-  ~
+\fi
+
+\ifsoftwarepage
+  \input{./pages/software.tex}
+
   \thispagestyle{empty}
   \newpage
 \fi
@@ -123,13 +127,6 @@
 
 \ifhintspage
   \input{./pages/hints.tex}
-
-  \thispagestyle{empty}
-  \newpage
-\fi
-
-\ifsoftwarepage
-  \input{./pages/software.tex}
 
   \thispagestyle{empty}
   \newpage
