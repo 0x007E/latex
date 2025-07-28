@@ -1,0 +1,8 @@
+Bild;Titel;Beschreibung
+info;Information;Enthält grundlegende Hintergrundinformationen oder Kontext zum Thema, die für das Verständnis der nachfolgenden Aufgaben oder Schritte relevant sind.
+lightbulb;Hinweis;Gibt ergänzende Tipps, Empfehlungen oder Hinweise, die bei der Bearbeitung hilfreich sein können, aber nicht zwingend beachtet werden müssen.
+warning;Vorsicht/Achtung/Wichtig;Weist auf potenzielle Riskiken und Gefahren hin und hebt besonders kritische Hinweise hervor, die unbedingt zu beachten sind, um Schaden oder Fehlfunktionen zu verhindern.
+bug;Problem/Fehler;Dokumentiert aufgetretene Schwierigkeiten, Abweichungen oder Fehler, die während der Bearbeitung festgestellt wurden.
+brain;Lösungsansatz;Beinhaltet mögliche Vorgehensweisen, Strategien oder Methoden, die zur Lösung von gestellten Aufgaben oder zur Behebung festgestellter Probleme angewendet werden können.
+sheet;Aufgabe/ToDo;Bezeichnet konkrete Arbeitsaufträge oder noch offene Arbeitsschritte, die im Rahmen der Aufgabenstellung umzusetzen sind.
+floppy;Abgabe/Dokumentation;Kennzeichnet die Ergebnisse, Unterlagen oder Dateien, die am Ende als Nachweis, Dokumentation oder zur Bewertung abzugeben sind.
