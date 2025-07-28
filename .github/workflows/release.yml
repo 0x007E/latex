@@ -1,0 +1,51 @@
+name: Release LaTeX Template Document
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  FILENAME: "template"
+  LITERATURE: "literature.bib"
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Git repository
+        uses: actions/checkout@v4
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: ${{ env.FILENAME }}.tex
+          texlive_version: 2025
+          extra_system_packages: "inkscape"
+          #pre_compile: "tlmgr update --self && tlmgr update --all"
+          pre_compile: |
+            latexmk -f -interaction=nonstopmode -shell-escape -pdf ${{ env.FILENAME }}.tex || true
+          args: "-f -interaction=nonstopmode -shell-escape -pdf"
+          latexmk_shell_escape: true
+          continue_on_error: true
+      
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+              Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Release PDF
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ env.FILENAME }}.pdf
+          asset_name: ${{ env.FILENAME }}.pdf
+          asset_content_type: application/pdf
