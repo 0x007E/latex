@@ -106,7 +106,11 @@
   \input{./preamble/competence.tex}
 \fi
 
+% ##########################################################################
+
 \begin{document}
+
+\selectlanguage{english}
 
 \iftitlepage
   \input{./pages/titlepage.tex}
@@ -150,7 +154,12 @@
   \newpage
 \fi
 
-\section*{Vorwort}
+\iflanguage{english}{
+  \section*{Abstract}
+}{
+  \section*{Vorwort}
+}
+
 Die Geschichte der Kryptografie ist eng mit technischen Innovationen und gesellschaftlichen Ereignissen verflochten. Ein besonders eindrucksvolles Beispiel moderner Verschlüsselungstechnik ist die \texttt{Enigma-Maschine}\footnote{\url{https://de.wikipedia.org/wiki/Enigma_(Maschine)}}. Die \texttt{Enigma} wurde in den 1920er-Jahren vom deutschen Ingenieur \texttt{Arthur Scherbius} entwickelt und ursprünglich als kommerzielle Chiffriermaschine für Banken und Unternehmen angeboten \parencite{copeland2017}. Erst später erlangte sie internationale Bekanntheit, als das deutsche Militär ihre hohe Verschlüsselungskraft erkannte und die Maschine ab Ende der 1920er-Jahre zur geheimen Kommunikation einsetzte. Während des Zweiten Weltkriegs war die \texttt{Enigma} das Herzstück der deutschen Militärkommunikation. Die Wehrmacht, die Kriegsmarine und andere Einheiten verwendeten \texttt{Enigma-Maschinen}, um Nachrichten zu chiffrieren und so vor feindlichem Zugriff zu schützen. Die Komplexität des Systems sollte eine Entschlüsselung durch die Alliierten verhindern. Die Entzifferung der \texttt{Enigma} durch ein internationales Team von Codeknackern, darunter \texttt{Marian Rejewski} und später \texttt{Alan Turing} in Bletchley Park, gilt als Meilenstein der Kryptografiegeschichte. Ihre Arbeit trug maßgeblich dazu bei, den Verlauf des Krieges mitzugestalten und das Zeitalter der Computertechnik einzuleiten. Die \texttt{Enigma} arbeitete auf elektromechanischer Basis nach dem Prinzip eines \texttt{polyalphabetischen Substitutionsverfahrens}\footnote{\url{https://de.wikipedia.org/wiki/Polyalphabetische_Substitution}}.Die \texttt{Enigma} steht exemplarisch für die Herausforderungen und Möglichkeiten maschineller Verschlüsselung. Ihr Design macht deutlich, wie technische Innovation und mathematisches Verständnis zusammenwirken, um die Sicherheit von Informationen zu gewährleisten – ein Aspekt, der bis heute in der IT-Sicherheit relevant ist.
 
 \thispagestyle{empty}
