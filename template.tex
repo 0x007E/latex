@@ -17,8 +17,12 @@
   \newcommand{\footerAuthor}{\documentAuthor}
   \newcommand{\footerVersion}{1.0}
 
-% Acronyme-Parameter
+% Page-Parameter
 \acronymspagetrue         % Acronyme aktivieren
+\tableofcontentspagetrue  % Inhaltsverzeichnis aktivieren
+\listoffigurespagetrue    % Abbildungsverzeichnis aktivieren
+\listoftablespagetrue     % Tabellenverzeichnis aktivieren
+\bibliographypagetrue     % Literaturverzeichnis aktivieren
 
 % Titlepage-Parameter
 \titlepagetrue        % Titelblatt aktivieren
@@ -148,12 +152,14 @@ Die Geschichte der Kryptografie ist eng mit technischen Innovationen und gesells
 \thispagestyle{empty}
 \newpage
 
-% Gliederungstiefe bis subsubsection (Inhaltsverzeichnis)
-% \setcounter{tocdepth}{2}
-\tableofcontents
+\iftableofcontentspage
+  % Gliederungstiefe bis subsubsection (Inhaltsverzeichnis)
+  % \setcounter{tocdepth}{2}
+  \tableofcontents
 
-\thispagestyle{empty}
-\newpage
+  \thispagestyle{empty}
+  \newpage
+\fi
 
 \setcounter{page}{1}
 
@@ -190,18 +196,27 @@ Dies war ein Beispiel für ein grundlegendes LaTeX-Template mit Kopf- und Fußze
   \newpage
 \fi
 
-% \section*{Literaturverzeichnis}
+\iflistoffigurespage
+  \listoffigures
+\fi
 
-% Hier zitiere ich ein Buch nach APA 7 \parencite{copeland2017} und \textcite{copeland2017}.
+\iflistoftablespage
+  \listoftables
+\fi
 
-\listoffigures
+\iflistoffigurespage
+  \thispagestyle{empty}
+  \newpage
+\else
+  \iflistoftablespage
+    \thispagestyle{empty}
+    \newpage
+  \fi
+\fi
 
-\listoftables
 
-\thispagestyle{empty}
-\newpage
-
-\printbibliography[title={Literaturverzeichnis}]
-
-\thispagestyle{empty}
+\ifbibliographypage
+  \printbibliography[title={Literaturverzeichnis}]
+  \thispagestyle{empty}
+\fi
 \end{document}
