@@ -25,8 +25,9 @@
 \bibliographypagetrue     % Literaturverzeichnis aktivieren
 
 % Titlepage-Parameter
-\titlepagetrue        % Titelblatt aktivieren
-\titlepageqrcodetrue  % QR-Code auf dem Titelblatt aktivieren
+\titlepagetrue                % Titelblatt aktivieren
+\titlepageqrcodetrue          % QR-Code auf dem Titelblatt aktivieren
+\blankpageaftertitlepagetrue  % Leerseite nach dem Titelblatt aktivieren
   \newcommand{\titleHeadline}{Projektarbeit\\Temp}
   \newcommand{\titleLogo}{./images/g.raf.png}
   \newcommand{\titleLogoWidth}{0.2}
@@ -113,9 +114,12 @@
 
   \thispagestyle{empty}
   \newpage
-  ~
-  \thispagestyle{empty}
-  \newpage
+
+  \ifblankpageaftertitlepage
+    ~
+    \thispagestyle{empty}
+    \newpage
+  \fi
 \fi
 
 \ifcompetencepage
