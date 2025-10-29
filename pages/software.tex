@@ -31,6 +31,13 @@
       Open-Source CAD-Software für 3D-Modellierung, geeignet für technische Konstruktionen und Design.\\
       \hline
 \fi
+\ifsoftwarepagekicad
+      \stepcounter{softwaretnotecounter}
+      \raisebox{-.25\height}{\includesvg[width=0.65cm,inkscapelatex=false]{./logo/kicad}} &
+      KiCAD\tnote{(\thesoftwaretnotecounter)} &
+      Open-Source PCB-Design-Software, geeignet für die Erstellung von Leiterplattenlayouts.\\
+      \hline
+\fi
 \ifsoftwarepagedremeldigilabslicer
       \stepcounter{softwaretnotecounter}
       \raisebox{-.25\height}{\includesvg[width=1.6cm,inkscapelatex=false]{./logo/dremel}} &
@@ -57,6 +64,10 @@
 \ifsoftwarepagefreecad
       \stepcounter{softwaretnotecounter}
       \item[(\thesoftwaretnotecounter)] \url{https://www.freecad.org/downloads.php}
+\fi
+\ifsoftwarepagekicad
+      \stepcounter{softwaretnotecounter}
+      \item[(\thesoftwaretnotecounter)] \url{https://www.kicad.org/download/}
 \fi
 \ifsoftwarepagedremeldigilabslicer
       \stepcounter{softwaretnotecounter}
