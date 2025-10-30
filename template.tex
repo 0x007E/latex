@@ -111,7 +111,16 @@
 
 \begin{document}
 
-\selectlanguage{english}
+\selectlanguage{ngerman}
+%\selectlanguage{english}
+
+\renewcommand{\tablename}{Tab.}
+
+\iflanguage{ngerman}{
+  \renewcommand{\figurename}{Abb.}
+}{
+  \renewcommand{\figurename}{Fig.}
+}
 
 \iftitlepage
   \input{./pages/titlepage.tex}
